@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Explore the luxurious 3BHK Private Villa at Savera Retreat. Modern design, comfort, and direct access to nature." />
+  <title>Explore Stays — Savera Retreat</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="pages.css" />
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="logowhite.png" alt="Savera Retreat" />
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li class="nav-dropdown">
+          <a href="#">Explore ▾</a>
+          <div class="dropdown-content">
+            <a href="stays.html">Stays</a>
+            <a href="amenities.html">Amenities</a>
+            <a href="location.html">Location</a>
+            <a href="things-to-do.html">Things to Do</a>
+            <a href="food-dining.html">Food &amp; Dining</a>
+            <a href="offers.html">Offers</a>
+            <a href="gallery.html">Gallery</a>
+          </div>
+        </li>
+        <li><a href="booking.html">Book Now</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <div class="nav-cta">
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <a href="tel:+917820966482" class="call-btn" aria-label="Call us">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M2 7a5 5 0 0 1 5-5h1.5a1 1 0 0 1 .95.68l1.5 4.5a1 1 0 0 1-.23 1.02L9.5 9.5a11 11 0 0 0 5 5l1.3-1.22a1 1 0 0 1 1.02-.23l4.5 1.5A1 1 0 0 1 22 15.5V17a5 5 0 0 1-5 5C8.16 22 2 15.84 2 7Z" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-bg" style="background-image: url('property-images/entrance.jpg');"></div>
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-content reveal">
+      <h1 class="hero-headline" style="align-items: center; text-align: center;">
+        <span class="line-serif">Your Private</span>
+        <span class="line-italic">Sanctuary &amp;</span>
+        <span class="line-serif-outline">Escape.</span>
+      </h1>
+      <p class="page-hero-sub">Step into our exclusive 3BHK Sanctuary crafted with pristine intention.</p>
+    </div>
+  </section>
+
+  <!-- VILLA INTRO TEXT -->
+  <section class="villa-intro-section">
+    <div class="villa-intro-inner reveal">
+      <span class="section-eyebrow">The Villa</span>
+      <h2 class="villa-intro-heading">3BHK Poolview Sanctuary</h2>
+      <p class="villa-intro-desc">Thoughtfully designed for groups, families, and high-profile gatherings. This boutique villa marries the tranquility of the countryside with ultra-modern necessities.</p>
+    </div>
+  </section>
+
+  <!-- VILLA DETAILS -->
+  <section class="villa-details-section">
+    <div class="villa-grid">
+      <div class="villa-carousel reveal">
+        <div class="carousel-track">
+          <div class="carousel-slide">
+            <img src="property-images/bedroom.jpg" alt="Savera Master Suite" />
+          </div>
+          <div class="carousel-slide">
+            <img src="property-images/bedroom-2.jpg" alt="Savera Second Bedroom" />
+          </div>
+          <div class="carousel-slide">
+            <img src="property-images/bedroom-3.jpg" alt="Savera Third Bedroom" />
+          </div>
+          <div class="carousel-slide">
+            <img src="property-images/bathroom.jpg" alt="Savera Luxury Bathroom" />
+          </div>
+          <div class="carousel-slide">
+            <img src="property-images/drawing-room.jpg" alt="Savera Drawing Room" />
+          </div>
+          <div class="carousel-slide">
+            <img src="property-images/pool-area-1.jpg" alt="Savera Private Pool" />
+          </div>
+          <div class="carousel-slide">
+            <img src="property-images/pool-area-3.jpg" alt="Savera Pool Deck" />
+          </div>
+        </div>
+        <div class="carousel-nav">
+          <button class="carousel-dot active" aria-label="Slide 1"></button>
+          <button class="carousel-dot" aria-label="Slide 2"></button>
+          <button class="carousel-dot" aria-label="Slide 3"></button>
+          <button class="carousel-dot" aria-label="Slide 4"></button>
+          <button class="carousel-dot" aria-label="Slide 5"></button>
+          <button class="carousel-dot" aria-label="Slide 6"></button>
+          <button class="carousel-dot" aria-label="Slide 7"></button>
+        </div>
+        <button class="carousel-arrow carousel-arrow--prev" id="carouselPrev" aria-label="Previous slide">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="carousel-arrow carousel-arrow--next" id="carouselNext" aria-label="Next slide">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 6 15 12 9 18"/></svg>
+        </button>
+      </div>
+
+      <div class="villa-info reveal" style="--reveal-delay:0.2s">
+
+        <div class="pricing-card">
+          <div class="pricing-title">Flexible Pricing</div>
+          <div class="price-display">Starting from ₹25,000 <span>/ Night</span></div>
+          <p style="font-size: 0.9rem; margin-bottom: 1.5rem; color: var(--text-muted);">*Rates may vary depending on weekends, events, and seasonal arrangements.</p>
+          <a href="booking.html" class="btn btn--primary" style="width:100%">Reserve Dates Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES & AMENITIES -->
+  <section class="amenities" style="background-color: var(--bg-off-white);">
+    <div class="amenities-header reveal">
+      <span class="section-eyebrow">Curated Comforts</span>
+      <h2 class="section-title">Exclusive Villa Features</h2>
+    </div>
+
+    <div class="checklist-grid reveal" style="max-width: 1200px; margin: 0 auto;">
+      <div class="checklist-item">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+        <span>3 Fully AC Bedrooms</span>
+      </div>
+      <div class="checklist-item">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+        <span>Private Swimming Pool</span>
+      </div>
+      <div class="checklist-item">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+        <span>9-Acre Manicured Lawn</span>
+      </div>
+      <div class="checklist-item">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+        <span>Secure Secure Parking</span>
+      </div>
+      <div class="checklist-item">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+        <span>Indoor Games (Billiards)</span>
+      </div>
+      <div class="checklist-item">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+        <span>High-speed WiFi</span>
+      </div>
+      <div class="checklist-item">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+        <span>Fully Equipped Kitchen</span>
+      </div>
+      <div class="checklist-item">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+        <span>Pet Friendly Layout</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="logo.png" alt="Savera Retreat" />
+        </div>
+        <p>A serene countryside retreat spread across 9 acres of lush greenery.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h5>Explore</h5>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="stays.html">Stays</a></li>
+            <li><a href="booking.html">Book Now</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Connect</h5>
+          <ul>
+            <li><a href="mailto:saveraretreatnagpur@gmail.com">Email Us</a></li>
+            <li><a href="tel:+917820966482">Call Us</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Savera Retreat. All rights reserved.</p>
+      <p>Wake up to luxury.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script src="pages.js"></script>
+</body>
+
+</html>

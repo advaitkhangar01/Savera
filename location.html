@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Find your way to Savera Retreat. Detailed directions, transport accessibility parameters, and live maps." />
+  <title>Location & Directions — Savera Retreat</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="pages.css" />
+
+  <style>
+    .location-section {
+      padding: 3rem 5% 4rem;
+      background-color: var(--bg-off-white);
+    }
+
+    .location-container {
+      max-width: 1200px;
+      margin: 0 auto 3rem;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 2rem;
+      align-items: stretch;
+    }
+
+    .map-wrapper {
+      border-radius: var(--border-radius-lg);
+      overflow: hidden;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+      border: 1px solid var(--tile-border);
+      height: 100%;
+      min-height: 500px;
+    }
+
+    .map-wrapper iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 500px;
+      border: none;
+      display: block;
+    }
+
+    .location-details {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .info-card {
+      background: var(--primary-white);
+      padding: 2rem;
+      border-radius: var(--border-radius-md);
+      border: 1px solid var(--tile-border);
+      box-shadow: 0 4px 20px rgba(18, 18, 18, 0.06);
+      flex: 1;
+    }
+
+    .info-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      font-family: var(--sans);
+      font-weight: 500;
+      color: var(--nature-green);
+    }
+
+    .distance-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .distance-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(18, 18, 18, 0.08);
+      padding-bottom: 1rem;
+    }
+
+    .distance-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .hub-name {
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    .hub-distance {
+      font-size: 1.25rem;
+      font-family: var(--serif);
+      font-weight: 600;
+      color: var(--primary-black);
+    }
+
+    .directions-text p {
+      font-size: 1rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .accessibility-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 0;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .access-item {
+      text-align: center;
+      padding: 2rem;
+      background: var(--primary-white);
+      border-radius: var(--border-radius-md);
+      box-shadow: 0 4px 20px rgba(18, 18, 18, 0.06);
+      border: 1px solid var(--tile-border);
+      transition: var(--transition);
+    }
+
+    .access-item:hover {
+      box-shadow: 0 10px 32px rgba(28, 43, 33, 0.10);
+      border-color: var(--nature-green);
+    }
+
+    .access-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .access-item h4 {
+      font-size: 1.05rem;
+      margin-bottom: 0.4rem;
+      font-weight: 600;
+    }
+
+    .access-item p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    @media (max-width: 992px) {
+      .location-container {
+        grid-template-columns: 1fr;
+      }
+      .map-wrapper {
+        min-height: 400px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="logowhite.png" alt="Savera Retreat" />
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li class="nav-dropdown">
+          <a href="#">Explore ▾</a>
+          <div class="dropdown-content">
+            <a href="stays.html">Stays</a>
+            <a href="amenities.html">Amenities</a>
+            <a href="location.html">Location</a>
+            <a href="things-to-do.html">Things to Do</a>
+            <a href="food-dining.html">Food & Dining</a>
+            <a href="offers.html">Offers</a>
+            <a href="gallery.html">Gallery</a>
+          </div>
+        </li>
+        <li><a href="booking.html">Book Now</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <div class="nav-cta">
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <a href="tel:+917820966482" class="call-btn" aria-label="Call us">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M2 7a5 5 0 0 1 5-5h1.5a1 1 0 0 1 .95.68l1.5 4.5a1 1 0 0 1-.23 1.02L9.5 9.5a11 11 0 0 0 5 5l1.3-1.22a1 1 0 0 1 1.02-.23l4.5 1.5A1 1 0 0 1 22 15.5V17a5 5 0 0 1-5 5C8.16 22 2 15.84 2 7Z" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-bg" style="background-image: url('assets/images/forest_trail.png');"></div>
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-content reveal">
+      <h1 class="hero-headline" style="align-items: center; text-align: center;">
+        <span class="line-serif">Find Your</span>
+        <span class="line-italic">Secluded</span>
+        <span class="line-serif-outline">Sanctuary.</span>
+      </h1>
+      <p class="page-hero-sub">Effortlessly secluded. Conveniently connected.</p>
+    </div>
+  </section>
+
+  <!-- LOCATION & ACCESSIBILITY -->
+  <section class="location-section">
+    <div class="location-container">
+      
+      <!-- Live Map Embed -->
+      <div class="map-wrapper reveal">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3722.4270705070076!2d79.20703467497766!3d21.09553318548234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4b7f6e3dd1443%3A0xa8e2208b2e089a56!2sSunrise%20Farms%20(Pachisia%20Farms)!5e0!3m2!1sen!2sin!4v1777370349098!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+
+      <!-- Distance and Directions -->
+      <div class="location-details reveal" style="--reveal-delay: 0.2s">
+        
+        <!-- Distance Card -->
+        <div class="info-card">
+          <h3>Proximity to Hubs</h3>
+          <div class="distance-list">
+            <div class="distance-item">
+              <span class="hub-name">Nagpur International Airport (NAG)</span>
+              <span class="hub-distance">~ 5.0 KM</span>
+            </div>
+            <div class="distance-item">
+              <span class="hub-name">Nagpur Junction Railway Station</span>
+              <span class="hub-distance">~ 8.0 KM</span>
+            </div>
+            <div class="distance-item">
+              <span class="hub-name">Silicon Valley Landmark</span>
+              <span class="hub-distance">~ 0.5 KM</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Directions Card -->
+        <div class="info-card directions-text">
+          <h3>Driving Directions</h3>
+          <p><strong>From Nagpur Airport:</strong> Head north on Wardha Rd. Take the appropriate exit toward Parsodi. Follow regional signs past Silicon Valley toward pachisia farms.</p>
+          <p><strong>Private Pickup:</strong> If you desire premium chauffeured convenience, simply coordinate directly with our 24/7 client desk.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Accessibility Info Grid -->
+    <div class="accessibility-grid reveal" style="--reveal-delay: 0.3s">
+      <div class="access-item">
+        <div class="access-icon">♿</div>
+        <h4>Wheelchair Friendly</h4>
+        <p>Ground level bedrooms and flat pathways across layouts.</p>
+      </div>
+      <div class="access-item">
+        <div class="access-icon">🚗</div>
+        <h4>Large SUV Access</h4>
+        <p>Broad gates designed securely for high-clearance fleets.</p>
+      </div>
+      <div class="access-item">
+        <div class="access-icon">🌿</div>
+        <h4>Paved Outdoors</h4>
+        <p>Groomed paths easily accessible across the nature decks.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="logo.png" alt="Savera Retreat" />
+        </div>
+        <p>A serene countryside retreat spread across 9 acres of lush greenery.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h5>Explore</h5>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="stays.html">Stays</a></li>
+            <li><a href="amenities.html">Amenities</a></li>
+            <li><a href="booking.html">Book Now</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Connect</h5>
+          <ul>
+            <li><a href="mailto:saveraretreatnagpur@gmail.com">Email Us</a></li>
+            <li><a href="tel:+917820966482">Call Us</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Savera Retreat. All rights reserved.</p>
+      <p>Wake up to luxury.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script src="pages.js"></script>
+</body>
+
+</html>

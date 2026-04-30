@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Savera Retreat — A luxury boutique farmhouse where nature meets refined living. Reserve your escape into the wild." />
+  <title>Savera Retreat — Where Luxury Meets Nature</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"
+    rel="stylesheet" />
+
+  <!-- Dream Avenue font loaded via @font-face in CSS (CDN fallback to Cormorant Garamond) -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--  NAVBAR                                    -->
+  <!-- ═══════════════════════════════════════════ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#home" class="nav-logo">
+        <img src="logowhite.png" alt="Savera Retreat" />
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li class="nav-dropdown">
+          <a href="#">Explore ▾</a>
+          <div class="dropdown-content">
+            <a href="stays.html">Stays</a>
+            <a href="amenities.html">Amenities</a>
+            <a href="location.html">Location</a>
+            <a href="things-to-do.html">Things to Do</a>
+            <a href="food-dining.html">Food & Dining</a>
+            <a href="offers.html">Offers</a>
+            <a href="gallery.html">Gallery</a>
+          </div>
+        </li>
+        <li><a href="booking.html">Book Now</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <div class="nav-cta">
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <a href="tel:+917820966482" class="call-btn" aria-label="Call us">
+
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path
+              d="M2 7a5 5 0 0 1 5-5h1.5a1 1 0 0 1 .95.68l1.5 4.5a1 1 0 0 1-.23 1.02L9.5 9.5a11 11 0 0 0 5 5l1.3-1.22a1 1 0 0 1 1.02-.23l4.5 1.5A1 1 0 0 1 22 15.5V17a5 5 0 0 1-5 5C8.16 22 2 15.84 2 7Z" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--  HERO SECTION                              -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="hero" id="home">
+    <div class="hero-visuals">
+      <!-- Cinematic slideshow: real property photos -->
+      <div class="hero-slideshow" id="heroSlideshow">
+        <div class="hero-slide active" style="background-image: url('property-images/pool-area-1.jpg')"></div>
+        <div class="hero-slide" style="background-image: url('property-images/entrance.jpg')"></div>
+        <div class="hero-slide" style="background-image: url('property-images/seating-area.jpg')"></div>
+        <div class="hero-slide" style="background-image: url('property-images/nighttime outside.jpg')"></div>
+        <div class="hero-slide" style="background-image: url('property-images/bonfire.jpg')"></div>
+      </div>
+      <div class="hero-overlay"></div>
+
+      <!-- Floating property tags -->
+      <div class="prop-tag prop-tag--pool" data-delay="0.8">
+        <span class="tag-dot"></span>
+        <span class="tag-label">Private Pool</span>
+      </div>
+      <div class="prop-tag prop-tag--deck" data-delay="1">
+        <span class="tag-dot"></span>
+        <span class="tag-label">9 Acres</span>
+      </div>
+      <div class="prop-tag prop-tag--suite" data-delay="1.2">
+        <span class="tag-dot"></span>
+        <span class="tag-label">3BHK Villa</span>
+      </div>
+    </div>
+
+    <div class="hero-content">
+      <h1 class="hero-headline">
+        <span class="line-serif">Wake up to</span>
+        <span class="line-italic">Luxury &amp;</span>
+        <span class="line-serif-outline">Nature.</span>
+      </h1>
+
+      <p class="hero-sub">
+        A serene 9-acre countryside retreat offering an exclusive 3BHK villa with modern amenities.<br />
+        Perfect for family getaways, day outings, and private events.
+      </p>
+
+      <div class="hero-ctas">
+        <a href="booking.html" class="btn btn--glass">Book Your Stay</a>
+        <a href="stays.html" class="btn btn--glass">Explore Villa</a>
+      </div>
+    </div>
+
+    <!-- Hero Progress Bars -->
+    <div class="hero-progress" id="heroProgress" aria-hidden="true">
+      <div class="hero-progress-bar active" data-slide="0"><div class="hero-progress-fill"></div></div>
+      <div class="hero-progress-bar" data-slide="1"><div class="hero-progress-fill"></div></div>
+      <div class="hero-progress-bar" data-slide="2"><div class="hero-progress-fill"></div></div>
+      <div class="hero-progress-bar" data-slide="3"><div class="hero-progress-fill"></div></div>
+      <div class="hero-progress-bar" data-slide="4"><div class="hero-progress-fill"></div></div>
+    </div>
+
+    <!-- Booking Strip -->
+    <div class="booking-strip" id="booking">
+      <div class="booking-inner">
+        <div class="booking-label">Plan Your Escape</div>
+        <div class="booking-fields">
+          <div class="booking-field">
+            <label for="checkin">Check-in</label>
+            <input type="date" id="checkin" name="checkin" />
+          </div>
+          <div class="booking-divider"></div>
+          <div class="booking-field">
+            <label for="checkout">Check-out</label>
+            <input type="date" id="checkout" name="checkout" />
+          </div>
+          <div class="booking-divider"></div>
+          <div class="booking-field booking-field--guests">
+            <label for="guests">Guests</label>
+            <div class="guests-control">
+              <button type="button" class="guests-btn" id="guestMinus" aria-label="Decrease guests">−</button>
+              <span id="guestCount">2</span>
+              <button type="button" class="guests-btn" id="guestPlus" aria-label="Increase guests">+</button>
+            </div>
+          </div>
+        </div>
+        <button type="button" class="btn btn--avail" id="checkAvailBtn">Check Availability</button>
+      </div>
+      <div class="booking-toast" id="bookingToast"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--  ABOUT SECTION                             -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="about" id="about">
+    <div class="about-bg-text" aria-hidden="true">Savera</div>
+
+    <!-- Eyebrow -->
+    <div class="about-eyebrow-wrap">
+      <span class="about-eyebrow-line"></span>
+      <p class="about-eyebrow">Our Story</p>
+      <span class="about-eyebrow-line"></span>
+    </div>
+
+    <!-- Editorial Statement -->
+    <div class="about-statement-wrap reveal">
+      <p class="about-statement">
+        Savera Retreat is a serene
+        <span class="about-inline-img">
+          <img src="property-images/seating-area-2.jpg" alt="Lush seating at Savera" />
+        </span>
+        countryside escape where
+        <em class="about-italic">luxury</em>
+        meets the tranquility of nature.
+      </p>
+    </div>
+
+    <!-- 3-Column: Image | Text | Image -->
+    <div class="about-columns">
+      <div class="about-col-img reveal">
+        <img src="property-images/pool-area-3.jpg" alt="Private pool at Savera" />
+      </div>
+
+      <div class="about-col-text reveal" style="--reveal-delay: 0.15s">
+        <p class="about-lead">Spread across 9 acres of lush greenery, Savera Retreat offers an exclusive premium 3BHK villa with modern amenities.
+        </p>
+        <p class="about-body-text">Whether it's an intimate family getaway, a grand celebration, or a corporate retreat — Savera adapts to your vision. Our private villa, swimming pool, and 24-hour caretaker ensure every moment is effortless.</p>
+        <a href="stays.html" class="btn btn--primary" style="margin-top: 1.5rem; align-self: flex-start;">Explore the Villa</a>
+      </div>
+
+      <div class="about-col-img reveal" style="--reveal-delay: 0.3s">
+        <img src="property-images/bonfire.jpg" alt="Bonfire evenings at Savera" />
+      </div>
+    </div>
+
+    <!-- Stats Strip -->
+    <div class="about-stats-strip">
+      <div class="about-stat">
+        <span class="about-stat-num">01</span>
+        <span class="about-stat-label">Exclusive 3BHK Villa</span>
+      </div>
+      <div class="about-stat-sep"></div>
+      <div class="about-stat">
+        <span class="about-stat-num">09</span>
+        <span class="about-stat-label">Acres of Greenery</span>
+      </div>
+      <div class="about-stat-sep"></div>
+      <div class="about-stat">
+        <span class="about-stat-num">30+</span>
+        <span class="about-stat-label">Guest Capacity (Stay)</span>
+      </div>
+      <div class="about-stat-sep"></div>
+      <div class="about-stat">
+        <span class="about-stat-num">800+</span>
+        <span class="about-stat-label">Event Capacity</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--  STAYS SECTION                             -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="stays" id="stays">
+    <div class="stays-header">
+      <span class="section-eyebrow">Your Private Sanctuary</span>
+      <h2 class="section-title">
+        Poolview 3BHK<br />
+        <em>Private Villa</em>
+      </h2>
+    </div>
+
+    <div class="villa-showcase reveal">
+      <div class="villa-img-wrap">
+        <img src="property-images/pool-area-2.jpg" alt="Poolview 3BHK Private Villa" loading="lazy" />
+      </div>
+      <div class="villa-details">
+        <span class="stay-tag">Exclusive Access</span>
+        <h3 class="stay-name">The Ultimate Group Escape</h3>
+        <p class="stay-desc">Experience unparalleled luxury in our fully air-conditioned 3BHK villa. Perfect for large families, celebrations, and corporate getaways.</p>
+        
+        <div class="villa-features">
+          <div class="v-feature">
+            <strong>Capacity:</strong> Up to 30 Guests
+          </div>
+          <div class="v-feature">
+            <strong>Price:</strong> ₹25,000 / Night
+          </div>
+          <div class="v-feature">
+            <strong>Highlights:</strong> Private Open-Air Pool, Sound System, Smart TV
+          </div>
+        </div>
+
+        <div class="stay-meta" style="margin-top: 2rem;">
+          <span>Full Villa Access · Pet Friendly · Caretaker</span>
+          <a href="#booking" class="btn btn--primary">Reserve Villa</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--  AMENITIES SECTION                         -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="amenities" id="amenities">
+    <div class="amenities-header">
+      <span class="section-eyebrow">Premium Amenities</span>
+      <h2 class="section-title">
+        Designed for<br />
+        <em>Comfort &amp; Play</em>
+      </h2>
+    </div>
+
+    <div class="amenities-grid">
+      <div class="amenity-item reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="svg-amenity"><path d="M2 6c.6.5 1.2 1 2.5 1s1.9-.5 2.5-1c.6-.5 1.2-1 2.5-1s1.9.5 2.5 1c.6.5 1.2 1 2.5 1s1.9-.5 2.5-1c.6-.5 1.2-1 2.5-1s1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1s1.9-.5 2.5-1c.6-.5 1.2-1 2.5-1s1.9.5 2.5 1c.6.5 1.2 1 2.5 1s1.9-.5 2.5-1c.6-.5 1.2-1 2.5-1s1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1s1.9-.5 2.5-1c.6-.5 1.2-1 2.5-1s1.9.5 2.5 1c.6.5 1.2 1 2.5 1s1.9-.5 2.5-1c.6-.5 1.2-1 2.5-1s1.9.5 2.5 1"/></svg>
+        <h4>Swimming Pool</h4>
+        <p>Private open-air pool for a refreshing dip anytime.</p>
+      </div>
+      <div class="amenity-item reveal" style="--reveal-delay:0.1s">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="svg-amenity"><path d="M12 2L4 10h16l-8-8z"/><path d="M12 10L6 16h12l-6-6z"/><path d="M12 16L8 21h8l-4-5z"/><path d="M12 21v2"/></svg>
+        <h4>Large Green Lawns</h4>
+        <p>Perfect for morning strolls, yoga, or outdoor events.</p>
+      </div>
+      <div class="amenity-item reveal" style="--reveal-delay:0.2s">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="svg-amenity"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><circle cx="15.5" cy="15.5" r="1.5"/><circle cx="15.5" cy="8.5" r="1.5"/><circle cx="8.5" cy="15.5" r="1.5"/></svg>
+        <h4>Indoor Games</h4>
+        <p>Billiards, board games, and more for indoor fun.</p>
+      </div>
+      <div class="amenity-item reveal" style="--reveal-delay:0.3s">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="svg-amenity"><path d="M6 16c3.3 0 6-2.7 6-6s-2.7-6-6-6-6 2.7-6 6 2.7 6 6 6z"/><path d="M10.2 10.2L19 19"/><path d="M15 15l2 5 3-3-5-2z"/></svg>
+        <h4>Outdoor Sports</h4>
+        <p>Volleyball and Badminton areas for active groups.</p>
+      </div>
+      <div class="amenity-item reveal" style="--reveal-delay:0.4s">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="svg-amenity"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.032-2.065-.5-4 1.5-6 1.256 1.887 1.733 3.89 1.5 6-.14.65-.4 1.22-.5 2a2.5 2.5 0 0 0 2.5 2.5c1.38 0 2.5-1.12 2.5-2.5 0-2.333-1-4-2-6 2.333 2 3.5 4.333 3.5 7a4.5 4.5 0 0 1-4.5 4.5c-3 0-4.5-2-4.5-4.5z"/><path d="M4 22h16"/></svg>
+        <h4>Bonfire Facility</h4>
+        <p>Gather around the fire for memorable evenings.</p>
+      </div>
+      <div class="amenity-item reveal" style="--reveal-delay:0.5s">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="svg-amenity"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1"/></svg>
+        <h4>High-Speed WiFi</h4>
+        <p>Stay connected with seamless internet access.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--  EVENTS & SERVICES                         -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="experience" id="experience">
+    <div class="exp-left">
+      <span class="section-eyebrow light">Host Your Events</span>
+      <h2 class="section-title light">
+        Unforgettable<br />
+        <em>Celebrations</em>
+      </h2>
+      <p class="exp-body">From intimate family getaways to grand celebrations, our venue adapts to your needs.</p>
+
+      <div class="exp-list">
+        <div class="exp-item">
+          <div class="exp-icon">🎉</div>
+          <div>
+            <h4>Event Hosting</h4>
+            <p>Capacity for up to 800 guests for weddings, parties, and corporate events.</p>
+          </div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-icon">🍽️</div>
+          <div>
+            <h4>Dining &amp; Food</h4>
+            <p>Order from nearby restaurants with pre-order or online delivery options.</p>
+          </div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-icon">🧹</div>
+          <div>
+            <h4>Daily Housekeeping</h4>
+            <p>Enjoy a hassle-free stay with our dedicated housekeeping team.</p>
+          </div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-icon">💆</div>
+          <div>
+            <h4>Spa &amp; Wellness</h4>
+            <p>Rejuvenating treatments available on request (partner services).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-right">
+      <div class="exp-img-grid">
+        <div class="exp-img exp-img--tall reveal">
+          <img src="property-images/seating-area-2 (2).jpg" alt="Event setup on lawn" loading="lazy" />
+        </div>
+        <div class="exp-img exp-img--short reveal" style="--reveal-delay:0.2s">
+          <img src="property-images/pool-area-3.jpg" alt="Poolside party" loading="lazy" />
+        </div>
+        <div class="exp-img exp-img--wide reveal" style="--reveal-delay:0.35s">
+          <img src="property-images/drawing-room.jpg" alt="Villa drawing room" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--  EVENT INQUIRY FORM                       -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="event-inquiry" id="event-inquiry">
+    <div class="inquiry-inner reveal">
+      <div class="inquiry-header">
+        <span class="section-eyebrow">Plan Your Event</span>
+        <h2 class="section-title">Host up to 800 Guests</h2>
+        <p>Fill out the form below, and our team will get back to you with a custom quote.</p>
+      </div>
+      
+      <form class="inquiry-form" id="eventForm">
+        <div class="form-group">
+          <label for="fullName">Full Name</label>
+          <input type="text" id="fullName" required placeholder="John Doe" />
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" required placeholder="john@example.com" />
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" required placeholder="+91 XXXXX XXXXX" />
+        </div>
+        <div class="form-group">
+          <label for="eventType">Event Type</label>
+          <select id="eventType" required>
+            <option value="" disabled selected>Select Event Type</option>
+            <option value="wedding">Wedding / Reception</option>
+            <option value="party">Private Party / Birthday</option>
+            <option value="shoot">Pre-Wedding / Shoot</option>
+            <option value="corporate">Corporate Event</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="guestRange">Estimated Guests</label>
+          <input type="number" id="guestRange" required placeholder="e.g. 100" max="800" />
+        </div>
+        <div class="form-group">
+          <label for="eventDate">Preferred Date</label>
+          <input type="date" id="eventDate" required />
+        </div>
+        <div class="form-group form-group--full">
+          <label for="message">Additional Requirements</label>
+          <textarea id="message" rows="4" placeholder="Tell us more about your vision..."></textarea>
+        </div>
+        <button type="submit" class="btn btn--primary form-submit">Send Inquiry</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--  FAQ SECTION                               -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="faq" id="faq">
+    <div class="faq-header">
+      <span class="section-eyebrow">Common Questions</span>
+      <h2 class="section-title">FAQs</h2>
+    </div>
+    
+    <div class="faq-grid">
+      <div class="faq-item reveal">
+        <div class="faq-question">
+          <h4>What are the check-in and check-out times?</h4>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Check-in is at 12:00 PM, and check-out is at 10:00 AM.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item reveal" style="--reveal-delay:0.1s">
+        <div class="faq-question">
+          <h4>What is the capacity of the villa?</h4>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>The Poolview 3BHK Private Villa can comfortably accommodate up to 30 guests for stay.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item reveal" style="--reveal-delay:0.2s">
+        <div class="faq-question">
+          <h4>Is the property pet-friendly?</h4>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Yes, Savera Retreat is pet-friendly. We welcome your furry friends!</p>
+        </div>
+      </div>
+      
+      <div class="faq-item reveal" style="--reveal-delay:0.3s">
+        <div class="faq-question">
+          <h4>How do we arrange for food?</h4>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Food can be ordered from nearby restaurants. You can pre-order or use online delivery services. The villa also has a fully equipped kitchen.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item reveal" style="--reveal-delay:0.4s">
+        <div class="faq-question">
+          <h4>What is the payment policy?</h4>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>We require a 25% advance payment to confirm your booking. The remaining 75% is payable upon arrival.</p>
+        </div>
+      </div>
+      <div class="faq-item reveal" style="--reveal-delay:0.5s">
+        <div class="faq-question">
+          <h4>Do you offer any discounts?</h4>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Yes! We offer special discounts for first-time bookings and referral rewards. Contact us to claim yours.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--  TESTIMONIAL SECTION                       -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="testimonials">
+    <div class="test-bg-text" aria-hidden="true">"</div>
+    <div class="test-inner">
+      <div class="test-slide active" id="test0">
+        <blockquote>
+          "Savera redefined what a holiday means to me. The silence, the food, the design — everything spoke of rare
+          intention. I left lighter than I arrived."
+        </blockquote>
+        <cite>— Priya Mehta, Mumbai</cite>
+      </div>
+      <div class="test-slide" id="test1">
+        <blockquote>
+          "We celebrated our anniversary here and it felt like the world had been made just for us. The staff read every
+          unstated wish."
+        </blockquote>
+        <cite>— Arjun &amp; Kavya, Bangalore</cite>
+      </div>
+      <div class="test-slide" id="test2">
+        <blockquote>
+          "The forest suite felt like sleeping inside a living painting. Breakfast on the deck in the mist — I will
+          carry that forever."
+        </blockquote>
+        <cite>— Rohit Sharma, Delhi</cite>
+      </div>
+      <div class="test-dots">
+        <button class="test-dot active" data-idx="0" aria-label="Testimonial 1"></button>
+        <button class="test-dot" data-idx="1" aria-label="Testimonial 2"></button>
+        <button class="test-dot" data-idx="2" aria-label="Testimonial 3"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--  CONTACT / CLOSING CTA SECTION             -->
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- ═══════════════════════════════════════════ -->
+  <!--  CONTACT / CLOSING CTA SECTION             -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="closing" id="contact">
+    <div class="closing-bg">
+      <img src="property-images/property-entrance.jpg" alt="Savera Retreat entrance" />
+      <div class="closing-overlay"></div>
+    </div>
+    <div class="closing-content reveal">
+      <span class="section-eyebrow light">Begin Here</span>
+      <h2 class="closing-headline">
+        Your Escape<br />
+        <em>Awaits You.</em>
+      </h2>
+      <p>Reach out and let us craft a stay that is entirely yours.</p>
+      <div class="closing-ctas">
+        <a href="mailto:saveraretreatnagpur@gmail.com" class="btn btn--primary">Write to Us</a>
+        <a href="tel:+917820966482" class="btn btn--outline-light">+91 78209 66482</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--  FOOTER                                    -->
+  <!-- ═══════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="logo.png" alt="Savera Retreat" />
+        </div>
+        <p>A serene countryside retreat spread across 9 acres of lush greenery.</p>
+        <p style="font-size: 0.85rem; opacity: 0.8; margin-top: 1rem;">
+          Parsodi, Khasra no 1/3,<br />
+          near Silicon Valley,<br />
+          Nagpur, Maharashtra 441202
+        </p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h5>Explore</h5>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="stays.html">Stays</a></li>
+            <li><a href="booking.html">Book Now</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+
+        </div>
+        <div class="footer-col">
+          <h5>Connect</h5>
+          <ul>
+            <li><a href="mailto:saveraretreatnagpur@gmail.com">Email Us</a></li>
+            <li><a href="tel:+917820966482">Call Us</a></li>
+            <li><a href="https://www.instagram.com/saveraretreatnagpur" target="_blank">Instagram</a></li>
+            <li><a href="https://www.facebook.com/profile.php?id=61576663302834" target="_blank">Facebook</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Location</h5>
+          <ul>
+            <li><a href="https://maps.app.goo.gl/z6NN28QW4oxAfRUh9?g_st=iw" target="_blank">Google Maps</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Savera Retreat. All rights reserved.</p>
+      <p>Wake up to luxury.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Savor luxury culinary experiences at Savera Retreat. Partnered restaurants, online delivery, and kitchen access." />
+  <title>Food & Dining — Savera Retreat</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="pages.css" />
+
+  <style>
+    .dining-section {
+      padding: 3rem 5%;
+      background-color: var(--bg-off-white);
+    }
+
+    .dining-row {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 3rem;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto 2rem;
+      padding: 3rem;
+      border-radius: var(--border-radius-lg);
+      background: var(--primary-white);
+      border: 1px solid var(--tile-border);
+      box-shadow: 0 4px 24px rgba(18, 18, 18, 0.05);
+      transition: var(--transition);
+    }
+
+    .dining-row:hover {
+      box-shadow: 0 12px 40px rgba(28, 43, 33, 0.10);
+    }
+
+    .dining-row:nth-child(even) {
+      grid-template-columns: 1.2fr 1fr;
+      background: var(--tile-bg);
+    }
+
+    .dining-row:nth-child(even) .dining-text {
+      order: 1;
+    }
+
+    .dining-row:nth-child(even) .dining-image-wrap {
+      order: 2;
+    }
+
+    .dining-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .dining-image-wrap {
+      position: relative;
+      border-radius: var(--border-radius-md);
+      overflow: hidden;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.10);
+      aspect-ratio: 4/3;
+    }
+
+    .dining-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .dining-image-wrap:hover img {
+      transform: scale(1.05);
+    }
+
+    .dining-text h3 {
+      font-size: clamp(2.5rem, 4vw, 3.5rem);
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      color: var(--primary-black);
+    }
+
+    .dining-text h3 em {
+      font-family: var(--serif);
+      font-style: italic;
+      font-weight: 300;
+    }
+
+    .dining-text p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    .dining-perks {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .perk-tag {
+      background-color: var(--bg-warm-cream);
+      color: var(--nature-green);
+      padding: 0.45rem 1.1rem;
+      border-radius: 30px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      border: 1px solid rgba(28, 43, 33, 0.18);
+      letter-spacing: 0.02em;
+    }
+
+    @media (max-width: 992px) {
+      .dining-row, .dining-row:nth-child(even) {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        margin-bottom: 1.5rem;
+        padding: 2rem;
+      }
+      .dining-row .dining-text, .dining-row:nth-child(even) .dining-text {
+        order: 2;
+      }
+      .dining-row .dining-image-wrap, .dining-row:nth-child(even) .dining-image-wrap {
+        order: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="logowhite.png" alt="Savera Retreat" />
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li class="nav-dropdown">
+          <a href="#">Explore ▾</a>
+          <div class="dropdown-content">
+            <a href="stays.html">Stays</a>
+            <a href="amenities.html">Amenities</a>
+            <a href="location.html">Location</a>
+            <a href="things-to-do.html">Things to Do</a>
+            <a href="food-dining.html">Food &amp; Dining</a>
+            <a href="offers.html">Offers</a>
+            <a href="gallery.html">Gallery</a>
+          </div>
+        </li>
+        <li><a href="booking.html">Book Now</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <div class="nav-cta">
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <a href="tel:+917820966482" class="call-btn" aria-label="Call us">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M2 7a5 5 0 0 1 5-5h1.5a1 1 0 0 1 .95.68l1.5 4.5a1 1 0 0 1-.23 1.02L9.5 9.5a11 11 0 0 0 5 5l1.3-1.22a1 1 0 0 1 1.02-.23l4.5 1.5A1 1 0 0 1 22 15.5V17a5 5 0 0 1-5 5C8.16 22 2 15.84 2 7Z" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-bg" style="background-image: url('property-images/dining area.jpg');"></div>
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-content reveal">
+      <h1 class="hero-headline" style="align-items: center; text-align: center;">
+        <span class="line-serif">Bespoke</span>
+        <span class="line-italic">Culinary</span>
+        <span class="line-serif-outline">Journeys.</span>
+      </h1>
+      <p class="page-hero-sub">Delicious moments perfectly tailored to your palette.</p>
+    </div>
+  </section>
+
+  <!-- DINING OPTIONS LIST -->
+  <section class="dining-section">
+
+    <!-- 1. PARTNERED RESTAURANTS -->
+    <div class="dining-row reveal">
+      <div class="dining-image-wrap">
+        <img src="assets/images/partnered_dining.png" alt="Gourmet Partnered Dining" />
+      </div>
+      <div class="dining-text">
+        <span class="section-eyebrow">Exquisite Collaborations</span>
+        <h3>Our <em>Partnered Restaurants</em></h3>
+        <p>Order from the finest local and regional eateries. Through our curated partnerships, enjoy exclusive custom menus, VIP delivery routing, and exceptional multi-cuisine flavors straight to the villa.</p>
+        <div class="dining-perks">
+          <span class="perk-tag">Exclusive Menus</span>
+          <span class="perk-tag">Multi-Cuisine</span>
+          <span class="perk-tag">Priority Service</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. ZOMATO / SWIGGY -->
+    <div class="dining-row reveal">
+      <div class="dining-image-wrap">
+        <img src="assets/images/food_delivery.png" alt="Online Food Delivery Integration" />
+      </div>
+      <div class="dining-text">
+        <span class="section-eyebrow">Ultimate Convenience</span>
+        <h3><em>Swiggy & Zomato</em> Access</h3>
+        <p>Craving your favorite comfort meals? Savera Retreat stays comfortably within standard rapid delivery radiuses. Simply order on your phone and collect your hot food right from the reception gate.</p>
+        <div class="dining-perks">
+          <span class="perk-tag">Contactless Drop-off</span>
+          <span class="perk-tag">Quick Delivery</span>
+          <span class="perk-tag">Unlimited Options</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. PRE-ORDER MEALS -->
+    <div class="dining-row reveal">
+      <div class="dining-image-wrap">
+        <img src="property-images/seating-area-2 (2).jpg" alt="Outdoor dining and pre-order" />
+      </div>
+      <div class="dining-text">
+        <span class="section-eyebrow">Worry-Free Planning</span>
+        <h3>Bespoke <em>Pre-Order Meals</em></h3>
+        <p>Eliminate the guesswork of group travel. Coordinate fully customized breakfast spreads, banquet arrangements, and specific meal goals directly with our caretakers ahead of your scheduled arrival.</p>
+        <div class="dining-perks">
+          <span class="perk-tag">Dietary Accommodations</span>
+          <span class="perk-tag">Banquet Planning</span>
+          <span class="perk-tag">Stress-Free</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. KITCHEN ACCESS -->
+    <div class="dining-row reveal">
+      <div class="dining-image-wrap">
+        <img src="property-images/kitchen.jpg" alt="Fully Equipped Villa Kitchen" />
+      </div>
+      <div class="dining-text">
+        <span class="section-eyebrow">Home Cooked Warmth</span>
+        <h3>Complete <em>Kitchen Access</em></h3>
+        <p>For those times you want the aroma of home. Utilize our fully outfitted premium villa kitchen stocked with gas ranges, appliances, heavy cookware, and helpful pantry basics securely.</p>
+        <div class="dining-perks">
+          <span class="perk-tag">Full Appliances</span>
+          <span class="perk-tag">Cookware Included</span>
+          <span class="perk-tag">Guest Pantry</span>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="logo.png" alt="Savera Retreat" />
+        </div>
+        <p>A serene countryside retreat spread across 9 acres of lush greenery.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h5>Explore</h5>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="stays.html">Stays</a></li>
+            <li><a href="amenities.html">Amenities</a></li>
+            <li><a href="booking.html">Book Now</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Connect</h5>
+          <ul>
+            <li><a href="mailto:saveraretreatnagpur@gmail.com">Email Us</a></li>
+            <li><a href="tel:+917820966482">Call Us</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Savera Retreat. All rights reserved.</p>
+      <p>Wake up to luxury.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script src="pages.js"></script>
+</body>
+
+</html>

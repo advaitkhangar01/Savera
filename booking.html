@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book Your Stay — Savera Retreat</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="pages.css" />
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="logowhite.png" alt="Savera Retreat" />
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li class="nav-dropdown">
+          <a href="#">Explore ▾</a>
+          <div class="dropdown-content">
+            <a href="stays.html">Stays</a>
+            <a href="amenities.html">Amenities</a>
+            <a href="location.html">Location</a>
+            <a href="things-to-do.html">Things to Do</a>
+            <a href="food-dining.html">Food & Dining</a>
+            <a href="offers.html">Offers</a>
+            <a href="gallery.html">Gallery</a>
+          </div>
+        </li>
+        <li><a href="booking.html">Book Now</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <div class="nav-cta">
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <a href="tel:+917820966482" class="call-btn" aria-label="Call us">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M2 7a5 5 0 0 1 5-5h1.5a1 1 0 0 1 .95.68l1.5 4.5a1 1 0 0 1-.23 1.02L9.5 9.5a11 11 0 0 0 5 5l1.3-1.22a1 1 0 0 1 1.02-.23l4.5 1.5A1 1 0 0 1 22 15.5V17a5 5 0 0 1-5 5C8.16 22 2 15.84 2 7Z" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-bg" style="background-image: url('assets/images/booking_hero.png');"></div>
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-content reveal">
+      <h1 class="hero-headline" style="align-items: center; text-align: center;">
+        <span class="line-serif">Reserve</span>
+        <span class="line-italic">Your Ultimate</span>
+        <span class="line-serif-outline">Gateway.</span>
+      </h1>
+    </div>
+  </section>
+
+  <!-- BOOKING ENGINE SECTION -->
+  <section class="booking-page-section">
+    <div id="bookingSuccess" class="booking-success" style="display: none;">
+      <div class="success-icon">✓</div>
+      <h2 style="font-family: var(--serif); font-size: 2.5rem; margin-bottom: 1rem;">Booking Request Received</h2>
+      <p style="color: var(--text-muted); margin-bottom: 2rem;">Thank you! Our travel curators will finalize details and reach out shortly via email/phone.</p>
+      <a href="index.html" class="btn btn--primary">Return Home</a>
+    </div>
+
+    <div class="booking-flow-container" id="bookingFormFields">
+      <!-- Steps Column -->
+      <div class="booking-steps reveal">
+        
+        <!-- STEP 1 -->
+        <div class="booking-step">
+          <div class="step-header">
+            <span class="step-num">1</span>
+            <span class="step-title">Select Dates</span>
+          </div>
+          <div class="booking-fields" style="flex-direction: row; flex-wrap: wrap;">
+            <div class="booking-field" style="min-width: 200px;">
+              <label for="b-checkin">Check-in</label>
+              <input type="date" id="b-checkin" required />
+            </div>
+            <div class="booking-field" style="min-width: 200px;">
+              <label for="b-checkout">Check-out</label>
+              <input type="date" id="b-checkout" required />
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="booking-step">
+          <div class="step-header">
+            <span class="step-num">2</span>
+            <span class="step-title">Guest Count</span>
+          </div>
+          <div class="booking-field booking-field--guests" style="flex-direction: row; align-items: center; justify-content: space-between; max-width: 300px;">
+            <label>Guests</label>
+            <div class="guests-control">
+              <button class="guests-btn" id="guestMinus" aria-label="Decrease guests">−</button>
+              <span id="guestCount">2</span>
+              <button class="guests-btn" id="guestPlus" aria-label="Increase guests">+</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="booking-step">
+          <div class="step-header">
+            <span class="step-num">3</span>
+            <span class="step-title">Enhance Your Stay (Add-ons)</span>
+          </div>
+          <div class="addons-list">
+            <div class="addon-card" data-price="5000" data-name="Private Dining">
+              <div class="addon-info">
+                <h4>Private Chef & Dining</h4>
+                <p>Personalized multiple course meal preparations</p>
+              </div>
+              <div class="addon-price">+ ₹5,000</div>
+            </div>
+
+            <div class="addon-card" data-price="3500" data-name="In-Villa Spa">
+              <div class="addon-info">
+                <h4>Partner Wellness Spa</h4>
+                <p>Relaxing full-body treatments in your suite</p>
+              </div>
+              <div class="addon-price">+ ₹3,500</div>
+            </div>
+
+            <div class="addon-card" data-price="6000" data-name="Live Entertainment">
+              <div class="addon-info">
+                <h4>Acoustic Musician</h4>
+                <p>Private live gig set up on the evening lawn</p>
+              </div>
+              <div class="addon-price">+ ₹6,000</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 4 -->
+        <div class="booking-step">
+          <div class="step-header">
+            <span class="step-num">4</span>
+            <span class="step-title">Your Details</span>
+          </div>
+          <div class="inquiry-form" style="grid-template-columns: 1fr; gap: 1rem;">
+            <div class="form-group">
+              <label for="u-name">Name</label>
+              <input type="text" id="u-name" required placeholder="Full Name" />
+            </div>
+            <div class="form-group">
+              <label for="u-email">Email</label>
+              <input type="email" id="u-email" required placeholder="hello@domain.com" />
+            </div>
+            <div class="form-group">
+              <label for="u-phone">Phone</label>
+              <input type="tel" id="u-phone" required placeholder="+91 XXXXX XXXXX" />
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Summary Sticky Column -->
+      <div class="booking-summary reveal" style="--reveal-delay:0.2s">
+        <div class="order-summary-card">
+          <h3 class="summary-title">Booking Summary</h3>
+          <div class="summary-line" id="summary-base">
+            <span id="summary-base-label">Villa Base Rate</span>
+            <span id="summary-base-amount">₹25,000</span>
+          </div>
+          
+          <div id="summary-addons">
+            <!-- Dynamic items get injected here via pages.js -->
+          </div>
+
+          <div class="summary-line total">
+            <span>Estimated Total</span>
+            <span id="summary-total">₹25,000</span>
+          </div>
+
+          <button id="bookNowBtn" class="btn btn--primary" style="width: 100%; margin-top: 2rem;">Confirm & Pay Now</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- RAZORPAY MOCK PAYMENT MODAL -->
+  <div class="mock-payment-overlay" id="paymentOverlay">
+    <div class="mock-payment-modal">
+      <div class="modal-header">
+        <span class="modal-logo">SAVERA RETREAT</span>
+        <button class="close-modal" id="closeModal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="text-align: center; color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.5rem;">PAYMENT TO SAVERA</p>
+        <div class="modal-amount" id="modal-amount">₹25,000</div>
+        
+        <p style="font-size: 0.85rem; margin-bottom: 1.5rem; text-align: center; color: var(--text-muted);">Secure Gateway Mock Environment</p>
+        
+        <div class="payment-methods">
+          <button id="mockPayBtn" class="pay-btn">Proceed with Standard Card</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="logo.png" alt="Savera Retreat" />
+        </div>
+        <p>A serene countryside retreat spread across 9 acres of lush greenery.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h5>Explore</h5>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="stays.html">Stays</a></li>
+            <li><a href="booking.html">Book Now</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Savera Retreat. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script src="pages.js"></script>
+  <script>
+    // Grab query params if any
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('checkin')) document.getElementById('b-checkin').value = params.get('checkin');
+    if (params.get('checkout')) document.getElementById('b-checkout').value = params.get('checkout');
+    if (params.get('guests')) document.getElementById('guestCount').textContent = params.get('guests');
+  </script>
+</body>
+
+</html>

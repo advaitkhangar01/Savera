@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Explore Savera Retreat through our property gallery — pools, bedrooms, dining, outdoor spaces, bonfire nights, and more." />
+  <title>Photo Gallery — Savera Retreat</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="pages.css" />
+
+  <style>
+    /* ═══════ GALLERY PAGE STYLES ═══════ */
+    .gallery-hero {
+      padding: 10rem 5% 4rem;
+      background: var(--primary-black);
+      text-align: center;
+      color: var(--primary-white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gallery-hero::before {
+      content: 'Gallery';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: var(--serif);
+      font-size: 25vw;
+      color: rgba(255, 255, 255, 0.03);
+      pointer-events: none;
+      white-space: nowrap;
+      z-index: 0;
+    }
+
+    .gallery-hero-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .gallery-hero h1 {
+      font-size: clamp(3rem, 7vw, 6rem);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    .gallery-hero h1 em {
+      font-style: italic;
+      font-weight: 300;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .gallery-hero p {
+      font-size: 1.1rem;
+      opacity: 0.7;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    /* ═══════ FILTER TABS ═══════ */
+    .gallery-filters {
+      padding: 2.5rem 5% 0;
+      background: var(--bg-off-white);
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      position: sticky;
+      top: 80px;
+      z-index: 50;
+      border-bottom: 1px solid rgba(18,18,18,0.06);
+    }
+
+    .filter-btn {
+      padding: 0.6rem 1.4rem;
+      border-radius: 30px;
+      border: 1px solid rgba(18,18,18,0.15);
+      background: transparent;
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      letter-spacing: 0.04em;
+      margin-bottom: 1rem;
+    }
+
+    .filter-btn:hover {
+      border-color: var(--nature-green);
+      color: var(--nature-green);
+    }
+
+    .filter-btn.active {
+      background: var(--primary-black);
+      border-color: var(--primary-black);
+      color: var(--primary-white);
+    }
+
+    /* ═══════ MASONRY GRID ═══════ */
+    .gallery-section {
+      padding: 3rem 5% 5rem;
+      background: var(--bg-off-white);
+    }
+
+    .gallery-count {
+      max-width: 1200px;
+      margin: 0 auto 1.5rem;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .gallery-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      columns: 3;
+      column-gap: 1rem;
+    }
+
+    @media (max-width: 900px) {
+      .gallery-grid { columns: 2; }
+    }
+    @media (max-width: 540px) {
+      .gallery-grid { columns: 1; }
+    }
+
+    .gallery-item {
+      break-inside: avoid;
+      margin-bottom: 1rem;
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      cursor: pointer;
+      display: block;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .gallery-item.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .gallery-item.hidden {
+      display: none;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.06);
+    }
+
+    .gallery-item-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1.5rem 1rem 1rem;
+      background: linear-gradient(to top, rgba(18,18,18,0.75), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .gallery-item:hover .gallery-item-overlay {
+      opacity: 1;
+    }
+
+    .gallery-item-caption {
+      color: var(--primary-white);
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* ═══════ LIGHTBOX ═══════ */
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(10, 10, 10, 0.97);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .lightbox.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .lightbox-img-wrap {
+      max-width: 90vw;
+      max-height: 85vh;
+      position: relative;
+    }
+
+    .lightbox-img-wrap img {
+      max-width: 90vw;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 8px;
+      display: block;
+      transition: opacity 0.25s ease;
+    }
+
+    .lightbox-caption {
+      text-align: center;
+      color: rgba(255,255,255,0.6);
+      font-size: 0.85rem;
+      margin-top: 1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .lightbox-close {
+      position: fixed;
+      top: 1.5rem;
+      right: 1.5rem;
+      width: 44px;
+      height: 44px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 50%;
+      color: white;
+      font-size: 1.4rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s ease;
+      z-index: 10001;
+    }
+
+    .lightbox-close:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    .lightbox-arrow {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 52px;
+      height: 52px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 50%;
+      color: white;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s ease, transform 0.2s ease;
+      z-index: 10001;
+    }
+
+    .lightbox-arrow:hover {
+      background: rgba(255,255,255,0.2);
+      transform: translateY(-50%) scale(1.05);
+    }
+
+    .lightbox-arrow svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .lightbox-prev { left: 1.5rem; }
+    .lightbox-next { right: 1.5rem; }
+
+    .lightbox-counter {
+      position: fixed;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255,255,255,0.5);
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar--dark" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="logo.png" alt="Savera Retreat" />
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li class="nav-dropdown">
+          <a href="#">Explore ▾</a>
+          <div class="dropdown-content">
+            <a href="stays.html">Stays</a>
+            <a href="amenities.html">Amenities</a>
+            <a href="location.html">Location</a>
+            <a href="things-to-do.html">Things to Do</a>
+            <a href="food-dining.html">Food &amp; Dining</a>
+            <a href="offers.html">Offers</a>
+            <a href="gallery.html">Gallery</a>
+          </div>
+        </li>
+        <li><a href="booking.html">Book Now</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <div class="nav-cta">
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <a href="tel:+917820966482" class="call-btn" aria-label="Call us">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M2 7a5 5 0 0 1 5-5h1.5a1 1 0 0 1 .95.68l1.5 4.5a1 1 0 0 1-.23 1.02L9.5 9.5a11 11 0 0 0 5 5l1.3-1.22a1 1 0 0 1 1.02-.23l4.5 1.5A1 1 0 0 1 22 15.5V17a5 5 0 0 1-5 5C8.16 22 2 15.84 2 7Z" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- GALLERY HERO -->
+  <div class="gallery-hero">
+    <div class="gallery-hero-inner">
+      <span class="section-eyebrow light">Savera Retreat</span>
+      <h1>Every Corner,<br /><em>A Story.</em></h1>
+      <p>Browse through real moments captured across our property.</p>
+    </div>
+  </div>
+
+  <!-- FILTER TABS -->
+  <div class="gallery-filters" id="galleryFilters">
+    <button class="filter-btn active" data-filter="all">All Photos</button>
+    <button class="filter-btn" data-filter="pool">Pool</button>
+    <button class="filter-btn" data-filter="bedroom">Bedrooms</button>
+    <button class="filter-btn" data-filter="living">Living Spaces</button>
+    <button class="filter-btn" data-filter="outdoor">Outdoors</button>
+    <button class="filter-btn" data-filter="dining">Dining &amp; Kitchen</button>
+    <button class="filter-btn" data-filter="bonfire">Bonfire</button>
+    <button class="filter-btn" data-filter="entrance">Entrance</button>
+  </div>
+
+  <!-- GALLERY GRID -->
+  <section class="gallery-section">
+    <p class="gallery-count" id="galleryCount">24 photos</p>
+    <div class="gallery-grid" id="galleryGrid">
+
+      <!-- POOL -->
+      <div class="gallery-item" data-category="pool" data-caption="Private Pool — Day View">
+        <img src="property-images/pool-area-1.jpg" alt="Private Swimming Pool" loading="lazy" />
+        <div class="gallery-item-overlay"><span class="gallery-item-caption">Private Pool</span></div>
+      </div>
+
+      <div class="gallery-item" data-category="pool" data-caption="Pool Area — Afternoon">
+        <img src="property-images/pool-area-2.jpg" alt="Pool Area Afternoon" loading="lazy" />
+        <div class="gallery-item-overlay"><span class="gallery-item-caption">Pool Afternoon</span></div>
+      </div>
+
+      <div class="gallery-item" data-category="pool" data-caption="Pool Deck View">
+        <img src="property-images/pool-area-3.jpg" alt="Pool Deck" loading="lazy" />
+        <div class="gallery-item-overlay"><span class="gallery-item-caption">Pool Deck</span></div>
+      </div>
+
+      <!-- BEDROOMS -->
+      <div class="gallery-item" data-category="bedroom" data-caption="Master Bedroom">
+        <img src="property-images/bedroom.jpg" alt="Master Bedroom" loading="lazy" />
+        <div class="gallery-item-overlay"><span class="gallery-item-caption">Master Bedroom</span></div>
+      </div>
+
+      <div class="gallery-item" data-category="bedroom" data-caption="Second Bedroom">
+        <img src="property-images/bedroom-2.jpg" alt="Second Bedroom" loading="lazy" />
+        <div class="gallery-item-overlay"><span class="gallery-item-caption">Second Bedroom</span></div>
+      </div>
+
+      <div class="gallery-item" data-category="bedroom" data-caption="Second Bedroom — Alternate View">
+        <img src="property-images/bedroom-2 (2).jpg" alt="Bedroom Alternate" loading="lazy" />
+        <div class="gallery-item-overlay"><span class="gallery-item-caption">Bedroom Suite</span></div>
+      </div>
+
+      <div class="gallery-item" data-category="bedroom" data-caption="Third Bedroom">
+        <img src="property-images/bedroom-3.jpg" alt="Third Bedroom" loading="lazy" />
+        <div class="gallery-item-overlay"><span class="gallery-item-caption">Third Bedroom</span></div>
+      </div>
+
+      <div class="gallery-item" data-category="bedroom" data-caption="Luxury Bathroom">
+        <img src="property-images/bathroom.jpg" alt="Luxury Bathroom" loading="lazy" />
+        <div class="gallery-item-overlay"><span class="gallery-item-caption">Bathroom Suite</span></div>
+      </div>
+
+      <div class="gallery-item" data-category="bedroom" data-caption="Bathroom — View 2">
+        <img src="property-images/bathroom-2.jpg" alt="Bathroom View 2" loading="lazy" />
+        <div class="gallery-item-overlay"><span class="gallery-item-caption">Ensuite Bath</span></div>
+      </div>
+
+      <!-- LIVING SPACES -->
+      <div class="gallery-item" data-category="living" data-caption="Drawing Room">
+        <img src="property-images/drawing-room.jpg" alt="Drawing Room" loading="lazy" />
+        <div class="gallery-item-overlay"><span class="gallery-item-caption">Drawing Room</span></div>
+      </div>
+
+      <!-- DINING & KITCHEN -->
+      <div class="gallery-item" data-category="dining" data-caption="Dining Area">
+        <img src="property-images/dining area.jpg" alt="Dining Area" loading="lazy" />
+        <div class="gallery-item-overlay"><span class="gallery-item-caption">Dining Area</span></div>
+      </div>
+
+      <div class="gallery-item" data-category="dining" data-caption="Fully Equipped Kitchen">
+        <img src="property-images/kitchen.jpg" alt="Villa Kitchen" loading="lazy" />
+        <div class="gallery-item-overlay"><span class="gallery-item-caption">Villa Kitchen</span></div>
+      </div>
+
+      <!-- OUTDOOR -->
+      <div class="gallery-item" data-category="outdoor" data-caption="Outdoor Seating Area">
+        <img src="property-images/seating-area.jpg" alt="Outdoor Seating" loading="lazy" />
+        <div class="gallery-item-overlay"><span class="gallery-item-caption">Outdoor Seating</span></div>
+      </div>
+
+      <div class="gallery-item" data-category="outdoor" data-caption="Lawn Seating — View 1">
+        <img src="property-images/seating-area-2.jpg" alt="Lawn Seating" loading="lazy" />
+        <div class="gallery-item-overlay"><span class="gallery-item-caption">Lawn Seating</span></div>
+      </div>
+
+      <div class="gallery-item" data-category="outdoor" data-caption="Lawn Seating — Evening">
+        <img src="property-images/seating-area-2 (2).jpg" alt="Seating Evening" loading="lazy" />
+        <div class="gallery-item-overlay"><span class="gallery-item-caption">Evening Lawn</span></div>
+      </div>
+
+      <!-- FITNESS -->
+      <div class="gallery-item" data-category="living" data-caption="Fitness & Exercise Area">
+        <img src="property-images/exercise-area.jpg" alt="Exercise Area" loading="lazy" />
+        <div class="gallery-item-overlay"><span class="gallery-item-caption">Fitness Center</span></div>
+      </div>
+
+      <div class="gallery-item" data-category="living" data-caption="Exercise Area — View 2">
+        <img src="property-images/exercise-area (2).jpg" alt="Exercise Area 2" loading="lazy" />
+        <div class="gallery-item-overlay"><span class="gallery-item-caption">Exercise Room</span></div>
+      </div>
+
+      <!-- BONFIRE -->
+      <div class="gallery-item" data-category="bonfire" data-caption="Bonfire Evening">
+        <img src="property-images/bonfire.jpg" alt="Bonfire Evening" loading="lazy" />
+        <div class="gallery-item-overlay"><span class="gallery-item-caption">Bonfire Night</span></div>
+      </div>
+
+      <div class="gallery-item" data-category="bonfire" data-caption="Bonfire — View 2">
+        <img src="property-images/bonfire-2.jpg" alt="Bonfire 2" loading="lazy" />
+        <div class="gallery-item-overlay"><span class="gallery-item-caption">Around the Fire</span></div>
+      </div>
+
+      <div class="gallery-item" data-category="bonfire" data-caption="Bonfire — Starlit Night">
+        <img src="property-images/bonfire-3.jpg" alt="Bonfire Starlit" loading="lazy" />
+        <div class="gallery-item-overlay"><span class="gallery-item-caption">Starlit Bonfire</span></div>
+      </div>
+
+      <!-- ENTRANCE -->
+      <div class="gallery-item" data-category="entrance" data-caption="Grand Entrance">
+        <img src="property-images/entrance.jpg" alt="Grand Entrance" loading="lazy" />
+        <div class="gallery-item-overlay"><span class="gallery-item-caption">Grand Entrance</span></div>
+      </div>
+
+      <div class="gallery-item" data-category="entrance" data-caption="Entrance Driveway">
+        <img src="property-images/entrance (2).jpg" alt="Entrance Driveway" loading="lazy" />
+        <div class="gallery-item-overlay"><span class="gallery-item-caption">Entrance Driveway</span></div>
+      </div>
+
+      <div class="gallery-item" data-category="entrance" data-caption="Property Entrance — Exterior">
+        <img src="property-images/property-entrance.jpg" alt="Property Entrance Exterior" loading="lazy" />
+        <div class="gallery-item-overlay"><span class="gallery-item-caption">Property Exterior</span></div>
+      </div>
+
+      <div class="gallery-item" data-category="entrance" data-caption="Nighttime Exterior">
+        <img src="property-images/nighttime outside.jpg" alt="Nighttime Exterior" loading="lazy" />
+        <div class="gallery-item-overlay"><span class="gallery-item-caption">Night Exterior</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image lightbox">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close lightbox">✕</button>
+    <button class="lightbox-arrow lightbox-prev" id="lightboxPrev" aria-label="Previous image">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <div class="lightbox-img-wrap">
+      <img id="lightboxImg" src="" alt="" />
+      <p class="lightbox-caption" id="lightboxCaption"></p>
+    </div>
+    <button class="lightbox-arrow lightbox-next" id="lightboxNext" aria-label="Next image">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 6 15 12 9 18"/></svg>
+    </button>
+    <div class="lightbox-counter" id="lightboxCounter"></div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="logo.png" alt="Savera Retreat" />
+        </div>
+        <p>A serene countryside retreat spread across 9 acres of lush greenery.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h5>Explore</h5>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="stays.html">Stays</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="booking.html">Book Now</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Connect</h5>
+          <ul>
+            <li><a href="mailto:saveraretreatnagpur@gmail.com">Email Us</a></li>
+            <li><a href="tel:+917820966482">Call Us</a></li>
+            <li><a href="https://www.instagram.com/saveraretreatnagpur" target="_blank">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Savera Retreat. All rights reserved.</p>
+      <p>Wake up to luxury.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>
+    /* ═══════ GALLERY JAVASCRIPT ═══════ */
+    document.addEventListener('DOMContentLoaded', () => {
+
+      const items = Array.from(document.querySelectorAll('.gallery-item'));
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const countEl = document.getElementById('galleryCount');
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightboxImg');
+      const lightboxCaption = document.getElementById('lightboxCaption');
+      const lightboxClose = document.getElementById('lightboxClose');
+      const lightboxPrev = document.getElementById('lightboxPrev');
+      const lightboxNext = document.getElementById('lightboxNext');
+      const lightboxCounter = document.getElementById('lightboxCounter');
+
+      let currentFilter = 'all';
+      let visibleItems = [];
+      let currentLightboxIndex = 0;
+
+      // Scroll-reveal items
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, i) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => entry.target.classList.add('visible'), i * 60);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      items.forEach(item => observer.observe(item));
+
+      // Filter logic
+      function applyFilter(filter) {
+        currentFilter = filter;
+        visibleItems = [];
+
+        items.forEach(item => {
+          const cat = item.dataset.category;
+          const show = filter === 'all' || cat === filter;
+          item.classList.toggle('hidden', !show);
+          if (show) visibleItems.push(item);
+        });
+
+        countEl.textContent = `${visibleItems.length} photo${visibleItems.length !== 1 ? 's' : ''}`;
+
+        // Re-trigger reveal for newly visible items
+        visibleItems.forEach((item, i) => {
+          item.classList.remove('visible');
+          setTimeout(() => item.classList.add('visible'), i * 50);
+        });
+      }
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          applyFilter(btn.dataset.filter);
+        });
+      });
+
+      // Initial filter
+      applyFilter('all');
+
+      // Lightbox open
+      items.forEach(item => {
+        item.addEventListener('click', () => {
+          if (item.classList.contains('hidden')) return;
+          const idx = visibleItems.indexOf(item);
+          openLightbox(idx);
+        });
+      });
+
+      function openLightbox(idx) {
+        currentLightboxIndex = idx;
+        const item = visibleItems[idx];
+        if (!item) return;
+        const img = item.querySelector('img');
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightboxCaption.textContent = item.dataset.caption || img.alt;
+        lightboxCounter.textContent = `${idx + 1} / ${visibleItems.length}`;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+        setTimeout(() => { lightboxImg.src = ''; }, 300);
+      }
+
+      function navigateLightbox(dir) {
+        const next = (currentLightboxIndex + dir + visibleItems.length) % visibleItems.length;
+        lightboxImg.style.opacity = '0';
+        setTimeout(() => {
+          openLightbox(next);
+          lightboxImg.style.opacity = '1';
+        }, 200);
+      }
+
+      lightboxClose.addEventListener('click', closeLightbox);
+      lightboxPrev.addEventListener('click', () => navigateLightbox(-1));
+      lightboxNext.addEventListener('click', () => navigateLightbox(1));
+
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('active')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') navigateLightbox(-1);
+        if (e.key === 'ArrowRight') navigateLightbox(1);
+      });
+    });
+  </script>
+
+</body>
+</html>

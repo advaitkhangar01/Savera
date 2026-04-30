@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Explore surrounding attractions near Savera Retreat — Pench Safari, Ramtek Temple, and local wonders." />
+  <title>Nearby Attractions — Savera Retreat</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="pages.css" />
+
+  <style>
+    .attractions-section {
+      padding: 3rem 5%;
+      background-color: var(--bg-off-white);
+    }
+
+    .attraction-row {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 3rem;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto 2rem;
+      padding: 3rem;
+      border-radius: var(--border-radius-lg);
+      background: var(--primary-white);
+      border: 1px solid var(--tile-border);
+      box-shadow: 0 4px 24px rgba(18, 18, 18, 0.05);
+      transition: var(--transition);
+    }
+
+    .attraction-row:hover {
+      box-shadow: 0 12px 40px rgba(28, 43, 33, 0.10);
+    }
+
+    .attraction-row:nth-child(even) {
+      grid-template-columns: 1.2fr 1fr;
+      background: var(--tile-bg);
+    }
+
+    .attraction-row:nth-child(even) .attraction-text {
+      order: 1;
+    }
+
+    .attraction-row:nth-child(even) .attraction-image-wrap {
+      order: 2;
+    }
+
+    .attraction-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .attraction-image-wrap {
+      position: relative;
+      border-radius: var(--border-radius-md);
+      overflow: hidden;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.10);
+      aspect-ratio: 16/10;
+    }
+
+    .attraction-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .attraction-image-wrap:hover img {
+      transform: scale(1.05);
+    }
+
+    .attraction-text h3 {
+      font-size: clamp(2.5rem, 4vw, 3.5rem);
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      color: var(--primary-black);
+    }
+
+    .attraction-text h3 em {
+      font-family: var(--serif);
+      font-style: italic;
+      font-weight: 300;
+    }
+
+    .attraction-text p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    .attraction-meta {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .dist-tag {
+      background-color: var(--nature-green);
+      color: var(--primary-white);
+      padding: 0.6rem 1.5rem;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+    }
+
+    @media (max-width: 992px) {
+      .attraction-row, .attraction-row:nth-child(even) {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        margin-bottom: 1.5rem;
+        padding: 2rem;
+      }
+      .attraction-row .attraction-text, .attraction-row:nth-child(even) .attraction-text {
+        order: 2;
+      }
+      .attraction-row .attraction-image-wrap, .attraction-row:nth-child(even) .attraction-image-wrap {
+        order: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="logowhite.png" alt="Savera Retreat" />
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li class="nav-dropdown">
+          <a href="#">Explore ▾</a>
+          <div class="dropdown-content">
+            <a href="stays.html">Stays</a>
+            <a href="amenities.html">Amenities</a>
+            <a href="location.html">Location</a>
+            <a href="things-to-do.html">Things to Do</a>
+            <a href="food-dining.html">Food & Dining</a>
+            <a href="offers.html">Offers</a>
+            <a href="gallery.html">Gallery</a>
+          </div>
+        </li>
+        <li><a href="booking.html">Book Now</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <div class="nav-cta">
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <a href="tel:+917820966482" class="call-btn" aria-label="Call us">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M2 7a5 5 0 0 1 5-5h1.5a1 1 0 0 1 .95.68l1.5 4.5a1 1 0 0 1-.23 1.02L9.5 9.5a11 11 0 0 0 5 5l1.3-1.22a1 1 0 0 1 1.02-.23l4.5 1.5A1 1 0 0 1 22 15.5V17a5 5 0 0 1-5 5C8.16 22 2 15.84 2 7Z" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-bg" style="background-image: url('property-images/nighttime outside.jpg');"></div>
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-content reveal">
+      <h1 class="hero-headline" style="align-items: center; text-align: center;">
+        <span class="line-serif">Surrounding</span>
+        <span class="line-italic">Wild &amp;</span>
+        <span class="line-serif-outline">Wonders.</span>
+      </h1>
+      <p class="page-hero-sub">Immerse yourself in history, wild adventures, and natural beauty.</p>
+    </div>
+  </section>
+
+  <!-- ATTRACTIONS LIST -->
+  <section class="attractions-section">
+
+    <!-- 1. RAMTEK TEMPLE -->
+    <div class="attraction-row reveal">
+      <div class="attraction-image-wrap">
+        <img src="assets/images/ramtek_temple.png" alt="Ramtek Temple" />
+      </div>
+      <div class="attraction-text">
+        <span class="section-eyebrow">Spiritual Heritage</span>
+        <h3>The Historic <em>Ramtek Temple</em></h3>
+        <p>Perched high on Rama's hill, this ancient stone temple holds legendary importance. Experience peaceful chants, deep architectural history, and breathtaking panoramic views of the valleys below.</p>
+        <div class="attraction-meta">
+          <span class="dist-tag">~ 50 KM Away</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. KARPUR BAOLI -->
+    <div class="attraction-row reveal">
+      <div class="attraction-image-wrap">
+        <img src="assets/images/karpur_baoli.png" alt="Karpur Baoli Stepwell" />
+      </div>
+      <div class="attraction-text">
+        <span class="section-eyebrow">Hidden History</span>
+        <h3>Ancient <em>Karpur Baoli</em></h3>
+        <p>A mesmerizing historical marvel. This hidden carved stone stepwell surrounded by dense foliage offers a spectacular glimpse into ancient Indian water infrastructure and tranquility.</p>
+        <div class="attraction-meta">
+          <span class="dist-tag">~ 50 KM Away</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. PENCH SAFARI -->
+    <div class="attraction-row reveal">
+      <div class="attraction-image-wrap">
+        <img src="assets/images/pench_safari.png" alt="Pench Safari Tiger Reserve" />
+      </div>
+      <div class="attraction-text">
+        <span class="section-eyebrow">Untamed Wilderness</span>
+        <h3>The <em>Pench Tiger Reserve</em></h3>
+        <p>Walk among legends. Explore the dense jungles that inspired Kipling's Jungle Book. Perfect for early morning safari tracks searching for the elusive Royal Bengal Tiger.</p>
+        <div class="attraction-meta">
+          <span class="dist-tag">~ 100 KM Away</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. CHERRY FARMS -->
+    <div class="attraction-row reveal">
+      <div class="attraction-image-wrap">
+        <img src="assets/images/cherry_farms.png" alt="Organic Cherry Farms" />
+      </div>
+      <div class="attraction-text">
+        <span class="section-eyebrow">Countryside Sweetness</span>
+        <h3>Local <em>Cherry Farms</em></h3>
+        <p>Enjoy fruit-picking sessions across organic farms nearby. Stroll through rows of vibrant orchards, learning sustainable agriculture directly from the soil up.</p>
+        <div class="attraction-meta">
+          <span class="dist-tag">~ 15 KM Away</span>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="logo.png" alt="Savera Retreat" />
+        </div>
+        <p>A serene countryside retreat spread across 9 acres of lush greenery.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h5>Explore</h5>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="stays.html">Stays</a></li>
+            <li><a href="amenities.html">Amenities</a></li>
+            <li><a href="booking.html">Book Now</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Connect</h5>
+          <ul>
+            <li><a href="mailto:saveraretreatnagpur@gmail.com">Email Us</a></li>
+            <li><a href="tel:+917820966482">Call Us</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Savera Retreat. All rights reserved.</p>
+      <p>Wake up to luxury.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script src="pages.js"></script>
+</body>
+
+</html>

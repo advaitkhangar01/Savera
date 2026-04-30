@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Discover the premium amenities at Savera Retreat. Lawn, Pool, Sports Room, Gym, Veranda, and Dining." />
+  <title>Premium Amenities — Savera Retreat</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="pages.css" />
+
+  <style>
+    .amenities-section {
+      padding: 3rem 5%;
+      background-color: var(--bg-off-white);
+    }
+
+    .amenity-row {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 3rem;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto 2rem;
+      padding: 3rem;
+      border-radius: var(--border-radius-lg);
+      background: var(--primary-white);
+      border: 1px solid var(--tile-border);
+      box-shadow: 0 4px 24px rgba(18, 18, 18, 0.05);
+      transition: var(--transition);
+    }
+
+    .amenity-row:hover {
+      box-shadow: 0 12px 40px rgba(28, 43, 33, 0.10);
+    }
+
+    .amenity-row:nth-child(even) {
+      grid-template-columns: 1.2fr 1fr;
+      background: var(--tile-bg);
+    }
+
+    .amenity-row:nth-child(even) .amenity-text {
+      order: 1;
+    }
+
+    .amenity-row:nth-child(even) .amenity-image-wrap {
+      order: 2;
+    }
+
+    .amenity-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .amenity-image-wrap {
+      position: relative;
+      border-radius: var(--border-radius-md);
+      overflow: hidden;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.10);
+      aspect-ratio: 4/3;
+    }
+
+    .amenity-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .amenity-image-wrap:hover img {
+      transform: scale(1.05);
+    }
+
+    .amenity-text h3 {
+      font-size: clamp(2.5rem, 4vw, 3.5rem);
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      color: var(--primary-black);
+    }
+
+    .amenity-text h3 em {
+      font-family: var(--serif);
+      font-style: italic;
+      font-weight: 300;
+    }
+
+    .amenity-text p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    .amenity-features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .am-tag {
+      background-color: var(--bg-warm-cream);
+      color: var(--nature-green);
+      padding: 0.45rem 1.1rem;
+      border-radius: 30px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      border: 1px solid rgba(28, 43, 33, 0.18);
+      letter-spacing: 0.02em;
+    }
+
+    @media (max-width: 992px) {
+      .amenity-row, .amenity-row:nth-child(even) {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        margin-bottom: 1.5rem;
+        padding: 2rem;
+      }
+      .amenity-row .amenity-text, .amenity-row:nth-child(even) .amenity-text {
+        order: 2;
+      }
+      .amenity-row .amenity-image-wrap, .amenity-row:nth-child(even) .amenity-image-wrap {
+        order: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="logowhite.png" alt="Savera Retreat" />
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li class="nav-dropdown">
+          <a href="#">Explore ▾</a>
+          <div class="dropdown-content">
+            <a href="stays.html">Stays</a>
+            <a href="amenities.html">Amenities</a>
+            <a href="location.html">Location</a>
+            <a href="things-to-do.html">Things to Do</a>
+            <a href="food-dining.html">Food & Dining</a>
+            <a href="offers.html">Offers</a>
+            <a href="gallery.html">Gallery</a>
+          </div>
+        </li>
+        <li><a href="booking.html">Book Now</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <div class="nav-cta">
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <a href="tel:+917820966482" class="call-btn" aria-label="Call us">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M2 7a5 5 0 0 1 5-5h1.5a1 1 0 0 1 .95.68l1.5 4.5a1 1 0 0 1-.23 1.02L9.5 9.5a11 11 0 0 0 5 5l1.3-1.22a1 1 0 0 1 1.02-.23l4.5 1.5A1 1 0 0 1 22 15.5V17a5 5 0 0 1-5 5C8.16 22 2 15.84 2 7Z" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-bg" style="background-image: url('property-images/pool-area-1.jpg');"></div>
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-content reveal">
+      <h1 class="hero-headline" style="align-items: center; text-align: center;">
+        <span class="line-serif">Premium</span>
+        <span class="line-italic">Villa</span>
+        <span class="line-serif-outline">Amenities.</span>
+      </h1>
+      <p class="page-hero-sub">Where uncompromising luxury meets the tranquil pulse of the wild.</p>
+    </div>
+  </section>
+
+  <!-- AMENITIES LIST -->
+  <section class="amenities-section">
+
+    <!-- 1. POOL -->
+    <div class="amenity-row reveal">
+      <div class="amenity-image-wrap">
+        <img src="property-images/pool-area-1.jpg" alt="Private Swimming Pool" />
+      </div>
+      <div class="amenity-text">
+        <span class="section-eyebrow">Waterfront Luxury</span>
+        <h3>The Private <em>Swimming Pool</em></h3>
+        <p>Take a refreshing dip in our pristine, private open-air pool. Seamlessly integrated into the landscape, it serves as the ultimate oasis for afternoon unwinding or magical starlit night swims.</p>
+        <div class="amenity-features">
+          <span class="am-tag">Temperature Maintained</span>
+          <span class="am-tag">Lounge Deck</span>
+          <span class="am-tag">Crystal Clear</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. LAWN -->
+    <div class="amenity-row reveal">
+      <div class="amenity-image-wrap">
+        <img src="property-images/seating-area-2.jpg" alt="Lush Manicured Lawns" />
+      </div>
+      <div class="amenity-text">
+        <span class="section-eyebrow">The Great Outdoors</span>
+        <h3>9 Acres of <em>Lush Greenery</em></h3>
+        <p>Breathe in the tranquility. Our sprawling, meticulously manicured lawns provide endless space for grand celebrations, high-octane gatherings, yoga sessions, or simply soaking in absolute peace.</p>
+        <div class="amenity-features">
+          <span class="am-tag">Event Ready (800+ Cap)</span>
+          <span class="am-tag">Jogging Trails</span>
+          <span class="am-tag">Starlit Views</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. DRAWING ROOM -->
+    <div class="amenity-row reveal">
+      <div class="amenity-image-wrap">
+        <img src="property-images/drawing-room.jpg" alt="Indoor Drawing Room" />
+      </div>
+      <div class="amenity-text">
+        <span class="section-eyebrow">Playful Gatherings</span>
+        <h3>The <em>Drawing Room</em></h3>
+        <p>Challenge family and friends in our dedicated indoor lounge. A premium space to gather, relax, and enjoy indoor entertainment with comfortable seating and modern décor.</p>
+        <div class="amenity-features">
+          <span class="am-tag">Billiards Table</span>
+          <span class="am-tag">Board Games</span>
+          <span class="am-tag">Entertainment Lounge</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. FITNESS -->
+    <div class="amenity-row reveal">
+      <div class="amenity-image-wrap">
+        <img src="property-images/exercise-area.jpg" alt="Modern Fitness Exercise Area" />
+      </div>
+      <div class="amenity-text">
+        <span class="section-eyebrow">Wellness &amp; Health</span>
+        <h3>The <em>Fitness Center</em></h3>
+        <p>Never skip a beat in your workout routine. Our dedicated exercise area is perfectly suited to keeping you active with modern equipment while surrounded by serene vistas of the outdoors.</p>
+        <div class="amenity-features">
+          <span class="am-tag">Modern Equipment</span>
+          <span class="am-tag">Free Weights</span>
+          <span class="am-tag">Air Conditioned</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. DINING AREA -->
+    <div class="amenity-row reveal">
+      <div class="amenity-image-wrap">
+        <img src="property-images/dining area.jpg" alt="Luxury Dining Area" />
+      </div>
+      <div class="amenity-text">
+        <span class="section-eyebrow">Gourmet Moments</span>
+        <h3>Elegant <em>Dining Area</em></h3>
+        <p>Savor exquisite meals within our beautifully structured dining quarters. Complemented by a fully equipped kitchen and open layouts, sharing meals transforms into an extraordinary group event.</p>
+        <div class="amenity-features">
+          <span class="am-tag">Gourmet Layout</span>
+          <span class="am-tag">Fully Equipped Kitchen</span>
+          <span class="am-tag">Caretaker Service</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. VERANDA / SEATING -->
+    <div class="amenity-row reveal">
+      <div class="amenity-image-wrap">
+        <img src="property-images/seating-area.jpg" alt="Open Veranda and Seating" />
+      </div>
+      <div class="amenity-text">
+        <span class="section-eyebrow">Sunkissed Lounges</span>
+        <h3>The <em>Outdoor Veranda</em></h3>
+        <p>Watch the sun dissolve into the horizon from our majestic open veranda space. The ultimate setup for your morning coffee rituals, peaceful reading sessions, or serene conversations.</p>
+        <div class="amenity-features">
+          <span class="am-tag">Nature Views</span>
+          <span class="am-tag">Comfort Seating</span>
+          <span class="am-tag">Perfect Sunrise</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7. PARKING -->
+    <div class="amenity-row reveal">
+      <div class="amenity-image-wrap">
+        <img src="property-images/entrance (2).jpg" alt="Secure Onsite Parking & Driveway" />
+      </div>
+      <div class="amenity-text">
+        <span class="section-eyebrow">Absolute Peace of Mind</span>
+        <h3>Secure <em>Onsite Parking</em></h3>
+        <p>Travel with confidence. Savera Retreat features a sprawling, perfectly paved, secure parking network shielded with 24/7 coverage accommodating large personal fleets comfortably.</p>
+        <div class="amenity-features">
+          <span class="am-tag">24/7 Security</span>
+          <span class="am-tag">Spacious Grid</span>
+          <span class="am-tag">CCTV Monitored</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8. BONFIRE -->
+    <div class="amenity-row reveal">
+      <div class="amenity-image-wrap">
+        <img src="property-images/bonfire.jpg" alt="Magical Bonfire Evenings" />
+      </div>
+      <div class="amenity-text">
+        <span class="section-eyebrow">Under the Stars</span>
+        <h3>Magical <em>Bonfire Evenings</em></h3>
+        <p>Gather around a crackling bonfire as the night sky stretches endlessly above. Share stories, roast marshmallows, and create memories that will last a lifetime in the warm glow of the fire.</p>
+        <div class="amenity-features">
+          <span class="am-tag">Stargazing</span>
+          <span class="am-tag">Wood Provided</span>
+          <span class="am-tag">Open Air</span>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="logo.png" alt="Savera Retreat" />
+        </div>
+        <p>A serene countryside retreat spread across 9 acres of lush greenery.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h5>Explore</h5>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="stays.html">Stays</a></li>
+            <li><a href="amenities.html">Amenities</a></li>
+            <li><a href="booking.html">Book Now</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Connect</h5>
+          <ul>
+            <li><a href="mailto:saveraretreatnagpur@gmail.com">Email Us</a></li>
+            <li><a href="tel:+917820966482">Call Us</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Savera Retreat. All rights reserved.</p>
+      <p>Wake up to luxury.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script src="pages.js"></script>
+</body>
+
+</html>

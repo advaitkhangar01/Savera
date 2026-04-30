@@ -1,0 +1,546 @@
+/* ═══════════════════════════════════════════
+   PAGES SPECIFIC STYLES (Phase 1)
+   ═══════════════════════════════════════════ */
+
+/* 1. Page Hero Banners (Shorter, consistent across interior pages) */
+.page-hero {
+  height: 80vh;
+  min-height: 400px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-white);
+  text-align: center;
+  padding: 8rem 5% 2rem;
+  overflow: hidden;
+}
+
+.page-hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transform: scale(1.05);
+  transition: var(--transition);
+}
+
+.page-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(18, 18, 18, 0.5), rgba(18, 18, 18, 0.7));
+  z-index: -1;
+}
+
+.page-hero-content {
+  max-width: 800px;
+  position: relative;
+  z-index: 10;
+}
+
+.page-hero-title {
+  font-size: clamp(3rem, 6vw, 5rem);
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.page-hero-title em {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 300;
+}
+
+.page-hero-sub {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  font-weight: 300;
+}
+
+/* 2a. Villa Intro Text Strip */
+.villa-intro-section {
+  background: #ffffff;
+  padding: 4rem 5% 3.5rem;
+  border-bottom: 1px solid rgba(18, 18, 18, 0.08);
+}
+
+.villa-intro-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.villa-intro-heading {
+  font-family: var(--serif);
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--primary-black);
+  margin: 0.6rem 0 1.25rem;
+  letter-spacing: -0.01em;
+}
+
+.villa-intro-desc {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: var(--text-muted);
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+/* 2b. Villa Detailed Overview & Carousel */
+.villa-details-section {
+  padding: 3rem 5%;
+  background: var(--bg-off-white);
+}
+
+.villa-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.villa-carousel {
+  position: relative;
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  aspect-ratio: 3/2;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel-nav {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.8rem;
+  z-index: 10;
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.carousel-dot.active {
+  background: var(--primary-white);
+  transform: scale(1.3);
+}
+
+/* Carousel Arrow Navigation */
+.villa-carousel {
+  overflow: visible;
+}
+
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  transition: var(--transition);
+  color: var(--primary-black);
+}
+
+.carousel-arrow:hover {
+  background: var(--primary-black);
+  color: var(--primary-white);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-arrow svg {
+  width: 18px;
+  height: 18px;
+}
+
+.carousel-arrow--prev {
+  left: -22px;
+}
+
+.carousel-arrow--next {
+  right: -22px;
+}
+
+.villa-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.villa-info h3 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+.villa-info p {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+/* 3. Pricing Cards and Availability */
+.pricing-card {
+  background: var(--tile-bg);
+  padding: 2.5rem;
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--tile-border);
+  box-shadow: 0 8px 32px rgba(28, 43, 33, 0.08);
+}
+
+.pricing-title {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--nature-green);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.price-display {
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  font-family: var(--serif);
+  color: var(--primary-black);
+  margin-bottom: 1.5rem;
+}
+
+.price-display span {
+  font-family: var(--sans);
+  font-size: 1rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+/* Checklist and Features Grid */
+.checklist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.checklist-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--primary-black);
+  background: var(--primary-white);
+  border: 1px solid var(--tile-border);
+  border-radius: 50px;
+  padding: 0.65rem 1.2rem;
+  box-shadow: 0 2px 8px rgba(18, 18, 18, 0.04);
+  transition: var(--transition);
+}
+
+.checklist-item:hover {
+  border-color: var(--nature-green);
+  box-shadow: 0 4px 16px rgba(28, 43, 33, 0.10);
+}
+
+.checklist-item svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  color: var(--nature-green);
+}
+
+/* 4. Booking Flow UI */
+.booking-page-section {
+  padding: 2rem 5%;
+  background: var(--primary-white);
+}
+
+.booking-flow-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.8fr 1.2fr;
+  gap: 2rem;
+}
+
+.booking-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.booking-step {
+  padding: 1.5rem;
+  background: var(--tile-bg);
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--tile-border);
+  box-shadow: 0 4px 16px rgba(18, 18, 18, 0.06);
+}
+
+.step-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.step-num {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--nature-green);
+  color: var(--primary-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.step-title {
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+/* Add-ons List */
+.addons-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.addon-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  background: var(--primary-white);
+  border: 1px solid var(--tile-border);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 2px 10px rgba(18, 18, 18, 0.05);
+}
+
+.addon-card:hover {
+  border-color: var(--nature-green);
+}
+
+.addon-card.selected {
+  border-color: var(--nature-green);
+  background: rgba(51, 64, 55, 0.03);
+}
+
+.addon-info h4 {
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+}
+
+.addon-info p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.addon-price {
+  font-weight: 600;
+  color: var(--nature-green);
+  font-size: 1rem;
+}
+
+/* Order Summary */
+.order-summary-card {
+  position: sticky;
+  top: 6rem;
+  background: var(--tile-bg);
+  border: 1px solid var(--tile-border);
+  border-radius: var(--border-radius-md);
+  padding: 2rem;
+  box-shadow: 0 12px 40px rgba(28, 43, 33, 0.10);
+  height: fit-content;
+}
+
+.summary-title {
+  font-size: 1.2rem;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(18, 18, 18, 0.1);
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.summary-line {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  color: var(--text-muted);
+}
+
+.summary-line.total {
+  font-size: 1.3rem;
+  font-family: var(--serif);
+  color: var(--primary-black);
+  border-top: 1px solid rgba(18, 18, 18, 0.1);
+  padding-top: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+/* Razorpay-style Mock Payment */
+.mock-payment-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.mock-payment-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mock-payment-modal {
+  background: var(--primary-white);
+  width: 100%;
+  max-width: 400px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+  transform: translateY(20px);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mock-payment-overlay.active .mock-payment-modal {
+  transform: translateY(0);
+}
+
+.modal-header {
+  background: #1F2438;
+  color: #fff;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-logo {
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.modal-body {
+  padding: 2rem;
+}
+
+.modal-amount {
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.payment-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.pay-btn {
+  width: 100%;
+  background: #3399FF;
+  color: #fff;
+  border: none;
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.pay-btn:hover {
+  opacity: 0.9;
+}
+
+.close-modal {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* Confirmation View */
+.booking-success {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.success-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(51, 64, 55, 0.1);
+  color: var(--nature-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin: 0 auto 1.5rem;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .villa-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .booking-flow-container {
+    grid-template-columns: 1fr;
+  }
+}
